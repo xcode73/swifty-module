@@ -8,8 +8,8 @@
 import Foundation
 import ViperKit
 
-@_cdecl("createModule")
-public func createModule() -> UnsafeMutableRawPointer {
+@_cdecl("createSwiftyModule")
+public func createSwiftyModule() -> UnsafeMutableRawPointer {
     return Unmanaged.passRetained(SwiftyBuilder()).toOpaque()
 }
 

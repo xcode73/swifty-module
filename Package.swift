@@ -10,7 +10,7 @@ let package = Package(
         .library(name: "SwiftyModule", targets: ["SwiftyModule"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/binarybirds/feather-core", from: "1.0.0"),
+        .package(url: "https://github.com/binarybirds/feather-core", .branch("main")),
         .package(url: "https://github.com/JohnSundell/Splash", from: "0.13.0"),
     ],
     targets: [
