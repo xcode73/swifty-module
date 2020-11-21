@@ -10,19 +10,16 @@ let package = Package(
         .library(name: "SwiftyModule", targets: ["SwiftyModule"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/binarybirds/feather-core", .branch("main")),
-        .package(url: "https://github.com/JohnSundell/Splash", from: "0.13.0"),
+        .package(url: "https://github.com/binarybirds/feather-core", from: "1.0.0-beta"),
+        .package(url: "https://github.com/JohnSundell/Splash", from: "0.15.0"),
     ],
     targets: [
-        .target(name: "SwiftyModule",
-                dependencies: [
-                    .product(name: "FeatherCore", package: "feather-core"),
-                    .product(name: "Splash", package: "Splash"),
-                ]
-        ),
-        .testTarget(name: "SwiftyModuleTests",
-                    dependencies: [
-                        .target(name: "SwiftyModule"),
-                    ])
+        .target(name: "SwiftyModule", dependencies: [
+            .product(name: "FeatherCore", package: "feather-core"),
+            .product(name: "Splash", package: "Splash"),
+        ]),
+        .testTarget(name: "SwiftyModuleTests", dependencies: [
+            .target(name: "SwiftyModule"),
+        ])
     ]
 )

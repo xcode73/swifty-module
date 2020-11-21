@@ -1,12 +1,6 @@
 # Swifty module
 
-This module is reponsible for Swift related syntax highlights using a content filter. 
-
-
-## Dependencies
- 
- - Frontend module
- 
+This module is reponsible for Swift related syntax highlights using a content filter  for [Feather CMS](https://github.com/binarybirds/feather/). 
 
 ## Credits 
  

@@ -1,12 +1,11 @@
 //
-//  File.swift
-//  
+//  SwiftyBuilder.swift
+//  SwiftyModule
 //
 //  Created by Tibor Bodecs on 2020. 08. 23..
 //
 
-import Foundation
-import ViperKit
+import FeatherCore
 
 @_cdecl("createSwiftyModule")
 public func createSwiftyModule() -> UnsafeMutableRawPointer {

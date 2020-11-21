@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  SwiftyModuleTests.swift
+//  SwiftyModule
 //
 //  Created by Tibor Bodecs on 2020. 08. 23..
 //
