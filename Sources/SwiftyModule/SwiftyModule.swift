@@ -27,7 +27,7 @@ final class SwiftyModule: ViperModule {
         [SwiftyFilter()]
     }
     
-    func leafFrontendCssHook(args: HookArguments) -> LeafDataRepresentable {
+    func leafFrontendCssHook(args: HookArguments) -> TemplateDataRepresentable {
         [
             "name": "swifty",
         ]
