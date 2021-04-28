@@ -45,20 +45,22 @@ extension String {
 
 
 struct SwiftyFilter: ContentFilter {
+
     var key: String { "swifty" }
     var label: String { "Swifty (Splash)" }
 
-    func filter(_ input: String) -> String {
-        input
-        .replace("<pre><code class=\"language-swift\">(.*?)</code></pre>", options: .dotMatchesLineSeparators) { c in
-            let highlighter = SyntaxHighlighter(format: HTMLOutputFormat())
-            let code = highlighter.highlight(c[1]).trimmingCharacters(in: .whitespacesAndNewlines)
-            return "<pre><code class=\"language-swift\">" + code + "</code></pre>"
-        }
-        .replace("```swift(.*?)```", options: .dotMatchesLineSeparators) { c in
-            let highlighter = SyntaxHighlighter(format: HTMLOutputFormat())
-            let code = highlighter.highlight(c[1]).trimmingCharacters(in: .whitespacesAndNewlines)
-            return "<pre><code class=\"language-swift\">" + code + "</code></pre>"
-        }
+    func filter(_ input: String, _ req: Request) -> EventLoopFuture<String> {
+        let res = input
+            .replace("<pre><code class=\"language-swift\">(.*?)</code></pre>", options: .dotMatchesLineSeparators) { c in
+                let highlighter = SyntaxHighlighter(format: HTMLOutputFormat())
+                let code = highlighter.highlight(c[1]).trimmingCharacters(in: .whitespacesAndNewlines)
+                return "<pre><code class=\"language-swift\">" + code + "</code></pre>"
+            }
+            .replace("```swift(.*?)```", options: .dotMatchesLineSeparators) { c in
+                let highlighter = SyntaxHighlighter(format: HTMLOutputFormat())
+                let code = highlighter.highlight(c[1]).trimmingCharacters(in: .whitespacesAndNewlines)
+                return "<pre><code class=\"language-swift\">" + code + "</code></pre>"
+            }
+        return req.eventLoop.future(res)
     }
 }

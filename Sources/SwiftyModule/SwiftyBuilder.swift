@@ -12,9 +12,9 @@ public func createSwiftyModule() -> UnsafeMutableRawPointer {
     return Unmanaged.passRetained(SwiftyBuilder()).toOpaque()
 }
 
-public final class SwiftyBuilder: ViperBuilder {
+public final class SwiftyBuilder: FeatherModuleBuilder {
 
-    public override func build() -> ViperModule {
+    public override func build() -> FeatherModule {
         SwiftyModule()
     }
 }
