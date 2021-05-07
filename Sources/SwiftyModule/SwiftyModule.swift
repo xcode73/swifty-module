@@ -11,14 +11,11 @@ final class SwiftyModule: FeatherModule {
 
     static let moduleKey: String = "swifty"
     
-    var bundleUrl: URL? {
-        Bundle.module.resourceURL?.appendingPathComponent("Bundle")
-    }
+    static var bundleUrl: URL? { Bundle.module.resourceURL?.appendingPathComponent("Bundle") }
     
     func boot(_ app: Application) throws {
         app.hooks.register(.contentFilters, use: contentFiltersHook)
-        
-//        app.hooks.register("leaf-frontend-css", use: leafFrontendCssHook)
+        app.hooks.register(.frontendCss, use: frontendCssHook)
     }
 
     // MARK: - hooks
@@ -27,9 +24,10 @@ final class SwiftyModule: FeatherModule {
         [SwiftyFilter()]
     }
 
-//    func leafFrontendCssHook(args: HookArguments) -> TemplateDataRepresentable {
-//        [
-//            "name": "swifty",
-//        ]
-//    }
+    func frontendCssHook(args: HookArguments) -> [OrderedTemplateData] {
+        [
+            .init("swifty"),
+        ]
+    }
+
 }
