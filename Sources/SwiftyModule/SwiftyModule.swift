@@ -8,7 +8,11 @@
 @_exported import FeatherCore
 
 struct SwiftyModule: FeatherModule {
-    
+        
+    var bundleUrl: URL? {
+        Bundle.module.resourceURL?.appendingPathComponent("Bundle")
+    }
+
     func boot(_ app: Application) throws {
         app.hooks.register(.filters, use: filtersHook)
         app.hooks.register(.webCss, use: webCssHook)
