@@ -47,6 +47,7 @@ struct SwiftyFilter: FeatherFilter {
 
     var key: String { "swifty" }
     var label: String { "Swifty (Splash)" }
+    var priority: Int { 100 }
 
     func filter(_ input: String, _ req: Request) async throws -> String {
         input
