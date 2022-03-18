@@ -5,7 +5,9 @@
 //  Created by Tibor Bodecs on 2021. 12. 21..
 //
 
+import Foundation
 import Feather
+import Vapor
 
 struct SwiftyModule: FeatherModule {
         
@@ -15,12 +17,12 @@ struct SwiftyModule: FeatherModule {
 
     func boot(_ app: Application) throws {
         app.hooks.register(.filters, use: filtersHook)
-        app.hooks.register(.webCss, use: webCssHook)
+        app.hooks.register(.webCss, use: webCssHook, priority: 420)
     }
 
-    func webCssHook(args: HookArguments) -> [OrderedHookResult<String>] {
+    func webCssHook(args: HookArguments) -> [String] {
         [
-            .init("/css/swifty/swifty.css", order: 420)
+            "/css/swifty/swifty.css"
         ]
     }
     

@@ -5,7 +5,9 @@
 //  Created by Tibor Bodecs on 2021. 12. 21..
 //
 
+import Foundation
 import Feather
+import Vapor
 import Splash
 
 extension String {

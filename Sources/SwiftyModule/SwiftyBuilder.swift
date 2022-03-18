@@ -5,6 +5,8 @@
 //  Created by Tibor Bodecs on 2021. 12. 27..
 //
 
+import Feather
+
 @_cdecl("createSwiftyModule")
 public func createSwiftyModule() -> UnsafeMutableRawPointer {
     return Unmanaged.passRetained(SwiftyBuilder()).toOpaque()
