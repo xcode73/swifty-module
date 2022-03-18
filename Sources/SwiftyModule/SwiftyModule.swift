@@ -5,7 +5,7 @@
 //  Created by Tibor Bodecs on 2021. 12. 21..
 //
 
-@_exported import FeatherCore
+import Feather
 
 struct SwiftyModule: FeatherModule {
         
