@@ -1,4 +1,4 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.9
 import PackageDescription
 
 let package = Package(
@@ -10,8 +10,9 @@ let package = Package(
         .library(name: "SwiftyModule", targets: ["SwiftyModule"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/feathercms/feather-core", .branch("dev")),
-        .package(url: "https://github.com/JohnSundell/Splash", from: "0.16.0"),
+//        .package(url: "git@github.com:xcode73/feather-core.git", branch: "main"),
+        .package(path: "../feather-core"),
+        .package(url: "git@github.com:JohnSundell/Splash.git", from: "0.16.0"),
     ],
     targets: [
         .target(name: "SwiftyModule", dependencies: [
